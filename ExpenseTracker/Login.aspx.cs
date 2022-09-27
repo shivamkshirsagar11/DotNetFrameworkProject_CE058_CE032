@@ -14,28 +14,55 @@ namespace ExpenseTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            loginerr.Text = "";
 
         }
 
-        protected void btnclick(object sender, EventArgs e)
+        protected void Btnclick(object sender, EventArgs e)
         {
             string un = uname.Text;
             string psw = pass.Text;
-            string q = "select from login";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["LoginDB"].ConnectionString;
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
 
             try
             {
                 using (con)
                 {
-
+                    string q = "select * from dbo.login where uname = '" + un +"' and pass = '"+psw+"'";
+                    Console.WriteLine(un, psw);
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    //Response.Write("Inside using conn");
+                    if (dr.HasRows)
+                    {
+                        //Response.Write("inside if");
+                        if (dr.Read())
+                        {
+                            Response.Write(dr[0].ToString()+" "+dr[1].ToString());
+                            loginerr.Text = "User found!";
+                        }
+                    }
+                    else
+                    {
+                        loginerr.Text = "No user found!";
+                        //Response.Write("Inside else");
+                    }
+                    dr.Close();
+                   
                 }
 
             }
             catch (Exception exp)
             {
-                Console.WriteLine(exp.Message);
+                Response.Write("Error: " + exp.Message);
+            }
+
+            finally
+            {
+               // Response.Write("In button click fxn");
+                //loginerr.Text = "No messege, error";
             }
              
         }
