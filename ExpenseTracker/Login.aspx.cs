@@ -15,6 +15,7 @@ namespace ExpenseTracker
         protected void Page_Load(object sender, EventArgs e)
         {
             loginerr.Text = (string) Session["cmnMsg"];
+            Session["authUser"] = false;
 
         }
 
@@ -31,7 +32,7 @@ namespace ExpenseTracker
             {
                 using (con)
                 {
-                    string q = "select * from dbo.login where uname = '" + un + "' and pass = '" + psw + "'";
+                    string q = "select * from login where uname = '" + un + "' and pass = '" + psw + "'";
                 
                     SqlCommand cmd = new SqlCommand(q, con);
                     con.Open();
@@ -41,6 +42,8 @@ namespace ExpenseTracker
                         if (dr.Read())
                         {
                             loginerr.Text = "";
+                            Session["userId"] = dr[0];
+                            Session["authUser"] = true;
                             Response.Redirect("Home.aspx");
                         }
                     }

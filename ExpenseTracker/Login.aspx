@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
     <style type="text/css">
         .auto-style1 {
@@ -13,34 +13,6 @@
     </style>
 </head>
 <body>
-    <%--    <div class="container my-5">
-        <form id="form1" runat="server">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="loginerr" runat="server" ForeColor="Red" ReadOnly="True" Rows="2"></asp:TextBox>
-            <br />
-            <br />
-            <table class="table table-striped-columns">
-                <tbody>
-                    <tr>
-                        <th>Username</th>
-                        <td>
-                            <asp:TextBox ID="uname" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="auto-style1" MaxLength="16"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="uname" ErrorMessage="Username is required" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th>Password</th>
-                        <td>
-                            <asp:TextBox ID="pass" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="auto-style1" MaxLength="14" TextMode="Password"></asp:TextBox></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <asp:Button ID="Button1" runat="server" OnClick="Btnclick" Text="Login" CausesValidation="False" CssClass="btn btn-success" />
-            <p>New to website? <a href="Register.aspx">Register here</a></p>
-        </form>
-    </div>--%>
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
@@ -53,7 +25,7 @@
 
                         <div class="form-outline mb-4">
                             <asp:TextBox ID="uname" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control" MaxLength="16"></asp:TextBox>
-                            
+
                             <label class="form-label" for="form1Example13">Username</label>
                         </div>
 
@@ -65,7 +37,6 @@
                             <asp:TextBox ID="loginerr" runat="server" ForeColor="Red" ReadOnly="True" Width="285px" CssClass="form-control"></asp:TextBox>
                             <label class="form-label" for="form1Example23">Server Messege</label>
                         </div>
-                        
 
                         <asp:Button ID="Button1" runat="server" OnClick="Btnclick" Text="Login" CausesValidation="False" CssClass="btn btn-primary btn-lg btn-block" />
                         <p>New to website? <a href="Register.aspx">Register here</a></p>
@@ -76,6 +47,7 @@
             </div>
         </div>
     </section>
+    <div id="no-back-button"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
