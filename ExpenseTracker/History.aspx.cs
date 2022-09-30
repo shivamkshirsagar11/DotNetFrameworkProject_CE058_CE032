@@ -45,11 +45,6 @@ namespace ExpenseTracker
                 con.Close();
             }
         }
-        protected void History1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-
-            Response.Write(History1.DataKeys[e.RowIndex].Value);
-        }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
@@ -72,6 +67,57 @@ namespace ExpenseTracker
                 Response.Write(ex.Message);
             }
 
+        }
+       protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            int rowi = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            string eid = History1.Rows[rowi].Cells[2].Text;
+            string ename = History1.Rows[rowi].Cells[3].Text;
+            string edetails = History1.Rows[rowi].Cells[4].Text;
+            string eamount = History1.Rows[rowi].Cells[5].Text;
+            string edate = History1.Rows[rowi].Cells[6].Text;
+            //Response.Write(eid+" "+ename+" "+edetails+" "+eamount+" "+edate);
+            enableEdit(eid,ename,edetails,eamount,edate);
+        }
+        protected void enableEdit(string id,string n,string det, string am, string da)
+        {
+            eid.Text = id;
+            ename.Text = n;
+            edetails.Text = det;
+            eamount.Text = am;
+            edate.Text = da;
+
+        }
+
+        protected void editEx_Click(object sender, EventArgs e)
+        {
+           string id = eid.Text;
+            string name = ename.Text;
+            string det = edetails.Text;
+            string amount = eamount.Text;
+            string date = edate.Text;
+            try
+            {
+                SqlConnection con = new SqlConnection
+                {
+                    ConnectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString
+                };
+                con.Open();
+                string q = "update expenses set ename='"+name+"', edetails ='"+det+"', eamount = '"+amount+"', edate='"+date+"' where id ='"+id+"'";
+                SqlCommand cmd = new SqlCommand(q, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                call_this();
+                eid.Text = "";
+                ename.Text = "";
+                edetails.Text = "";
+                eamount.Text = "";
+                edate.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }
