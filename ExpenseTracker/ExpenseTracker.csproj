@@ -72,6 +72,7 @@
       <DependentUpon>Storage.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Login.aspx" />
@@ -80,6 +81,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
