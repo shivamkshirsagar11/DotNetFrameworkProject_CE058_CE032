@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -14,9 +8,8 @@ namespace ExpenseTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loginerr.Text = (string) Session["cmnMsg"];
+            loginerr.Text = (string)Session["cmnMsg"];
             Session["authUser"] = false;
-
         }
 
         protected void Btnclick(object sender, EventArgs e)
@@ -33,7 +26,7 @@ namespace ExpenseTracker
                 using (con)
                 {
                     string q = "select * from login where uname = '" + un + "' and pass = '" + psw + "'";
-                
+
                     SqlCommand cmd = new SqlCommand(q, con);
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
@@ -49,18 +42,16 @@ namespace ExpenseTracker
                     }
                     else
                     {
-                       loginerr.Text = "No user found!";
+                        loginerr.Text = "No user found!";
                     }
                     dr.Close();
                     con.Close();
                 }
-
             }
             catch (Exception exp)
             {
                 Response.Write("Error: " + exp.Message);
             }
-             
         }
     }
 }

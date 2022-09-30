@@ -67,9 +67,8 @@
                     <br />
                     <asp:Button ID="Button1" runat="server" OnClick="AddExpense" Text="Add" CssClass="btn btn-success" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                
+
                     <asp:Button ID="Button3" runat="server" CssClass="btn btn-danger" OnClick="ResetExoenseForm" Text="Reset" />
-                
                 </div>
             </div>
     </form>

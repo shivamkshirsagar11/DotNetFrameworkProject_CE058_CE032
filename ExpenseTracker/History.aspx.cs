@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
 namespace ExpenseTracker
 {
     public partial class History : System.Web.UI.Page
@@ -13,8 +11,8 @@ namespace ExpenseTracker
         protected void Page_Load(object sender, EventArgs e)
         {
             call_this();
-
         }
+
         protected void call_this()
         {
             SqlConnection con = new SqlConnection
@@ -56,19 +54,19 @@ namespace ExpenseTracker
                 };
                 con.Open();
                 int rowi = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-                int eid = Convert.ToInt32(History1.Rows[rowi].Cells[1].Text);
+                int eid = Convert.ToInt32(History1.Rows[rowi].Cells[2].Text);
                 SqlCommand cmd = new SqlCommand("delete from expenses where id = '" + eid + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 call_this();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Write(ex.Message);
             }
-
         }
-       protected void LinkButton2_Click(object sender, EventArgs e)
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
         {
             int rowi = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
             string eid = History1.Rows[rowi].Cells[2].Text;
@@ -77,21 +75,21 @@ namespace ExpenseTracker
             string eamount = History1.Rows[rowi].Cells[5].Text;
             string edate = History1.Rows[rowi].Cells[6].Text;
             //Response.Write(eid+" "+ename+" "+edetails+" "+eamount+" "+edate);
-            enableEdit(eid,ename,edetails,eamount,edate);
+            enableEdit(eid, ename, edetails, eamount, edate);
         }
-        protected void enableEdit(string id,string n,string det, string am, string da)
+
+        protected void enableEdit(string id, string n, string det, string am, string da)
         {
             eid.Text = id;
             ename.Text = n;
             edetails.Text = det;
             eamount.Text = am;
             edate.Text = da;
-
         }
 
         protected void editEx_Click(object sender, EventArgs e)
         {
-           string id = eid.Text;
+            string id = eid.Text;
             string name = ename.Text;
             string det = edetails.Text;
             string amount = eamount.Text;
@@ -103,7 +101,7 @@ namespace ExpenseTracker
                     ConnectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString
                 };
                 con.Open();
-                string q = "update expenses set ename='"+name+"', edetails ='"+det+"', eamount = '"+amount+"', edate='"+date+"' where id ='"+id+"'";
+                string q = "update expenses set ename='" + name + "', edetails ='" + det + "', eamount = '" + amount + "', edate='" + date + "' where id ='" + id + "'";
                 SqlCommand cmd = new SqlCommand(q, con);
                 cmd.ExecuteNonQuery();
                 con.Close();

@@ -17,8 +17,7 @@ namespace ExpenseTracker
 
         protected string RandomString(string date)
         {
-           
-            return "Expense_Pack_clusterRefDate_" + date +"_UI_"+ Session["userId"];
+            return "Expense_Pack_clusterRefDate_" + date + "_UI_" + Session["userId"];
         }
 
         protected void AddExpense(object sender, EventArgs e)
@@ -40,18 +39,13 @@ namespace ExpenseTracker
             {
                 using (con)
                 {
-                  
                     con.Open();
 
-
-
                     SqlCommand cmd = new SqlCommand();
-                        String q = string.Format("insert into expenses values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", Session["userID"], en, ed, amount, givenDate, givenDate, todayDate);
-                        cmd = new SqlCommand(q, con);
-                        cmd.ExecuteNonQuery();
-                        expadded.Text = "Expense Added!";
-
-                  
+                    String q = string.Format("insert into expenses values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", Session["userID"], en, ed, amount, givenDate, givenDate, todayDate);
+                    cmd = new SqlCommand(q, con);
+                    cmd.ExecuteNonQuery();
+                    expadded.Text = "Expense Added!";
                 }
             }
             catch (Exception exp)

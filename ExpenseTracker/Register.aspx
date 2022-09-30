@@ -59,7 +59,7 @@
                                             <a href="Login.aspx">Already have an Account?</a>
                                             <br />
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="uname" ErrorMessage="Username is required" ForeColor="Red"></asp:RequiredFieldValidator>
-&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;
                                             <br />
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="uname" ErrorMessage="Username must be between 8-16 characters" ForeColor="Red" ValidationExpression="[\w\s]{8,16}"></asp:RegularExpressionValidator>
                                             <br />
@@ -69,12 +69,11 @@
                                             <br />
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="pass" ErrorMessage="Password must be between 6-14 characters" ForeColor="Red" ValidationExpression="[\w\s]{6,14}"></asp:RegularExpressionValidator>
                                         </div>
-                                         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image" />
-
-              </div>
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                                class="img-fluid" alt="Sample image" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +83,7 @@
             </section>
         </div>
     </form>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
