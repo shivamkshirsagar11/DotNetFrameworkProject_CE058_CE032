@@ -9,8 +9,17 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="History1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="164px" Width="239px">
+            
+            <asp:GridView ID="History1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="164px" Width="500px" >
                 <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Delete</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    
+                </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -23,8 +32,7 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
         </div>
-        <asp:Panel ID="Panel" runat="server" Height="300px">
-        </asp:Panel>
     </form>
+    <a href="Home.aspx">Home</a>
 </body>
 </html>

@@ -40,41 +40,18 @@ namespace ExpenseTracker
             {
                 using (con)
                 {
-                    string q = "select * from dbo.centralidcluster where userid = '" + Session["userId"] + "' and dateforref = '" + givenDate + "'";
-
-                    SqlCommand cmd = new SqlCommand(q, con);
+                  
                     con.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.HasRows)
-                    {
-                        if (dr.Read())
-                        {
-                           
-                            cid = dr[2].ToString();
-                            dr.Close();
-                            q = string.Format("insert into expenses values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", cid, en, ed, amount, givenDate, givenDate, todayDate);
-                            cmd = new SqlCommand(q, con);
-                            cmd.ExecuteNonQuery();
-                            expadded.Text = "Expense Added!";
-                        }
-                        
-                    }
-                    else
-                    {
-                        dr.Close();
-                        cid = RandomString(givenDate);
-                        q = string.Format("insert into centralidcluster values('{0}','{1}','{2}','{3}')", Session["userId"], cid, givenDate, todayDate);
-                        cmd = new SqlCommand(q, con);
-                        cmd.ExecuteNonQuery();
-                        q = string.Format("insert into expenses values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", cid, en, ed, amount, givenDate, givenDate, todayDate);
+
+
+
+                    SqlCommand cmd = new SqlCommand();
+                        String q = string.Format("insert into expenses values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", Session["userID"], en, ed, amount, givenDate, givenDate, todayDate);
                         cmd = new SqlCommand(q, con);
                         cmd.ExecuteNonQuery();
                         expadded.Text = "Expense Added!";
-                    }
-                    if (!dr.IsClosed)
-                    {
-                        dr.Close();
-                    }
+
+                  
                 }
             }
             catch (Exception exp)
@@ -105,6 +82,7 @@ namespace ExpenseTracker
             edetail.Text = "";
             eamount.Text = "";
             edate.Text = "";
+            expadded.Text = "";
         }
     }
 }
