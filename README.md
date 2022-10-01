@@ -1,4 +1,4 @@
 # ExpenseTracker
 
-<h2>Shivam Kshirsagar: CE058<br />Romin Dhandhukiya : CE032
+<h2>Shivam Kshirsagar<br /><hr />Romin
 </h2>

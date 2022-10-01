@@ -10,7 +10,15 @@ namespace ExpenseTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            call_this();
+            if (!(bool)Session["authUser"])
+            {
+                Session["cmnMsg"] = "Un-Authorised User!";
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                call_this();
+            }
         }
 
         protected void call_this()

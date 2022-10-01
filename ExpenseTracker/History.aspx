@@ -5,54 +5,86 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 26px;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .myMarg{
+            margin-top : 25px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-
-            <asp:GridView ID="History1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="164px" Width="500px">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Delete</asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Edit</asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
+        <div class="row myMarg">
+            <div class="col-md-4"></div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="text-uppercase" for="exampleInputEmail1">ID(ReadOnly)</label>
+                    <asp:TextBox ID="eid" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label class="text-uppercase">Expense Name</label>
+                    <asp:TextBox ID="ename" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label class="text-uppercase">Expense Details</label>
+                    <asp:TextBox ID="edetails" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label class="text-uppercase">Expense Amount</label>
+                    <asp:TextBox ID="eamount" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label class="text-uppercase">Expense Date</label>
+                    <asp:TextBox ID="edate" CssClass="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                </div>
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-secondary btn-block" Text="Update" OnClick="editEx_Click" />
+                <br />
+                 <div class="col text-center">
+                <%--<asp:Button ID="btnHome" runat="server" CssClass="btn btn-primary " Text="Home" OnClick="Home.aspx" />--%>
+                <a href="Home.aspx" class="btn btn-primary" >Home</a>
+                 </div>
+                <br />
+                <br />
+            </div>
+            <div class="col-md-4"></div>
         </div>
-    <br /><hr />
-       <table>
-          <tr><th class="auto-style1">ID(ReadOnly)</th> <td class="auto-style1"><asp:TextBox ID="eid" runat="server" ReadOnly="True"></asp:TextBox></td></tr>
-          <tr><th>Expense Name</th> <td><asp:TextBox ID="ename" runat="server"></asp:TextBox></td></tr>
-          <tr><th class="auto-style1">Expense Details</th> <td class="auto-style1"><asp:TextBox ID="edetails" runat="server"></asp:TextBox></td></tr>
-          <tr><th>Expense Amount</th> <td><asp:TextBox ID="eamount" runat="server"></asp:TextBox></td></tr>
-          <tr><th>Expense Date</th> <td><asp:TextBox ID="edate" runat="server" TextMode="Date"></asp:TextBox></td></tr>
-           </table><br />
-        <asp:Button ID="editEx" runat="server" Text="Update" OnClick="editEx_Click" />
-    </form><br />
-    <a href="Home.aspx">Home</a>
-    </body>
+        <div class="container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div>
+                    <asp:GridView ID="History1" runat="server" CellPadding="4" CssClass="table table-hover table-responsive" ForeColor="Black" Height="164px" Width="500px" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger btn-sm" OnClick="LinkButton1_Click">Delete</asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-success btn-sm" OnClick="LinkButton2_Click">Edit</asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                        <RowStyle BackColor="White" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                    </asp:GridView>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </form>
+</body>
 </html>

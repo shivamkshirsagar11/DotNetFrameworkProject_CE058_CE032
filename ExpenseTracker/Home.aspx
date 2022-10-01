@@ -29,48 +29,60 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <asp:Button ID="Button2" runat="server" Text="Logout" CssClass="dropdown-item" OnClick="LogoutUser" />
-                            <a class="dropdown-item" href="#">Change Details</a>
-                            <a class="dropdown-item" href="#">Generate Report</a>
+                            <a class="dropdown-item" href="History.aspx">Change Details</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
-        <div class="mx-auto my-5 shadow-lg p-3 mb-5 bg-white rounded" style="width: 300px;">
-            <blockquote class="blockquote text-center">
-                <p class="mb-0">Add Expense</p>
-            </blockquote>
 
-            <div class="form-group">
-                <label for="exampleInputEmail1">Expense Name</label>
-                <asp:TextBox ID="ename" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Expense Details</label>
-                <asp:TextBox ID="edetail" runat="server" Height="100px" Width="200px"></asp:TextBox>
-                &nbsp;
-            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <%--<div class="mx-auto my-5 shadow-lg p-3 mb-5 bg-white rounded" style="width: 300px;">--%>
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">Add Expense</p>
+                    </blockquote>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Expense Amount</label>
-                <asp:TextBox ID="eamount" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control"></asp:TextBox>
-            </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Expense Name</label>
+                        <asp:TextBox ID="ename" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Expense Details</label>
+                        <asp:TextBox ID="edetail" runat="server" Height="80px" Width="100%"></asp:TextBox>
+                        &nbsp;
+           
+                    </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Expense Date and Time</label>
-                <asp:TextBox ID="edate" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control" TextMode="DateTimeLocal"></asp:TextBox>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Expense Amount</label>
+                        <asp:TextBox ID="eamount" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control"></asp:TextBox>
+                    </div>
 
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Server Messege</label>
-                    <asp:TextBox ID="expadded" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control" ForeColor="Red"></asp:TextBox>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Expense Date and Time</label>
+                        <asp:TextBox ID="edate" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control" TextMode="DateTimeLocal"></asp:TextBox>
 
-                    <br />
-                    <asp:Button ID="Button1" runat="server" OnClick="AddExpense" Text="Add" CssClass="btn btn-success" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Server Messege</label>
+                            <asp:TextBox ID="expadded" runat="server" AutoCompleteType="Disabled" AutoPostBack="False" CssClass="form-control" ForeColor="Red"></asp:TextBox>
+
+                            <br />
+                            <asp:Button ID="Button1" runat="server" OnClick="AddExpense" Text="Add" CssClass="btn btn-success" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                   
 
                     <asp:Button ID="Button3" runat="server" CssClass="btn btn-danger" OnClick="ResetExoenseForm" Text="Reset" />
+                        </div>
+                    </div>
+                    <%--</div>--%>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
+        </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
